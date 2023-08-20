@@ -3,7 +3,7 @@ import Post from '../Post'
 
 
 function IndexPage() {
-  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+  const ENDPOINT = 'http://3.14.245.184:4000';
   const [posts , setPosts] = useState([]);
   useEffect(()=>{
     fetch(ENDPOINT+'/viewPost').then(response =>{

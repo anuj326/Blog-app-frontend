@@ -3,7 +3,7 @@ import {formatISO9075} from 'date-fns';
 import { Link } from 'react-router-dom';
 
 function Post({_id,title, summary , cover, content, createdAt, author}) {
-  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+  const ENDPOINT = 'http://3.14.245.184:4000';
   return (
     <div>
         <div className="post">

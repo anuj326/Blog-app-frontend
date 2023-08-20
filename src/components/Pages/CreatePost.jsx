@@ -21,7 +21,7 @@ const modules = {
   ]; 
 
 function CreatePost() {
-  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+  const ENDPOINT = 'http://3.14.245.184:4000';
     const [title, setTitle] = useState('');
     const [summary , setSummary] = useState('');
     const [content , setContent] = useState('');

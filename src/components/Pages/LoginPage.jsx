@@ -5,7 +5,7 @@ import { UserContext } from '../UserContext';
 
 
 function LoginPage() {
-  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+  const ENDPOINT = 'http://3.14.245.184:4000';
     //const history = useNavigate();
 
     const[user, setUser] = useState({

@@ -4,7 +4,7 @@ import {UserContext} from "./UserContext";
 
 
 export default function Header() {
-const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+const ENDPOINT = 'http://3.14.245.184:4000';
 console.log("Endpoint",ENDPOINT );
   const {setUserInfo,userInfo} = useContext(UserContext);
   useEffect(() => {

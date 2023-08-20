@@ -5,7 +5,7 @@ import {UserContext} from '../UserContext'
 
 
 function PostPage() {
-    const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+    const ENDPOINT = 'http://3.14.245.184:4000';
     const [postInfo ,setPostInfo] = useState(null);
     const {userInfo} = useContext(UserContext)
     const params = useParams();
