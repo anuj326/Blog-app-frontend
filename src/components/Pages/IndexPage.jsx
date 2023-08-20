@@ -3,10 +3,10 @@ import Post from '../Post'
 
 
 function IndexPage() {
-  
+  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
   const [posts , setPosts] = useState([]);
   useEffect(()=>{
-    fetch('http://localhost:4000/viewPost').then(response =>{
+    fetch(ENDPOINT+'/viewPost').then(response =>{
       response.json().then(posts => {
         setPosts(posts);
       })

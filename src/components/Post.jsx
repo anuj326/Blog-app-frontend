@@ -3,13 +3,13 @@ import {formatISO9075} from 'date-fns';
 import { Link } from 'react-router-dom';
 
 function Post({_id,title, summary , cover, content, createdAt, author}) {
- 
+  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
   return (
     <div>
         <div className="post">
         <div className="image">
             <Link to={`/getPost/${_id}`} >
-                <img style={{height:'400px'}} src={'http://localhost:4000/'+cover} alt="Post Image" />
+                <img style={{height:'400px'}} src={ENDPOINT+'/'+cover} alt="Post Image" />
             </Link>
           </div>
           <div className="texts">

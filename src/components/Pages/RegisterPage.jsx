@@ -3,7 +3,7 @@ import { useNavigate} from 'react-router-dom';
 
 
 function RegisterPage() {
-
+  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
     const history = useNavigate();
 
     const[user, setUser] = useState({
@@ -23,7 +23,7 @@ function RegisterPage() {
     const loginUser = async(e)=>{
         e.preventDefault();
         const {username, password} =user;
-      const res = await fetch('http://localhost:4000/register',{
+      const res = await fetch(ENDPOINT+'/register',{
         method:'POST',
         headers:{
           "Content-Type":"application/json"

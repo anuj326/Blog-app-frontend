@@ -4,6 +4,7 @@ import Editor from './Editor';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'
 
+
 const modules = {
   toolbar: [
     [{ 'header': [1, 2, false] }],
@@ -23,7 +24,7 @@ const modules = {
 
 function EditPost() {
     const {id} = useParams();
-
+    const ENDPOINT = process.env.REACT_APP_ENDPOINT;
     const [title, setTitle] = useState('');
     const [summary , setSummary] = useState('');
     const [content , setContent] = useState('');
@@ -31,7 +32,7 @@ function EditPost() {
     const [redirect , setRedirect] = useState(false);
 
     useEffect(() =>{
-        fetch('http://localhost:4000/getPost/'+id)
+        fetch(ENDPOINT+'/getPost/'+id)
         .then(response =>{
             response.json()
             .then(postInfo =>{
@@ -54,7 +55,7 @@ function EditPost() {
             data.set('file',files?.[0]);
         }
         
-       await fetch('http://localhost:4000/post',{
+       await fetch(ENDPOINT+'/post',{
             method:'PUT',
             body:data,
             credentials:'include',

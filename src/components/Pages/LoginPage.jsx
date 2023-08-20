@@ -5,7 +5,7 @@ import { UserContext } from '../UserContext';
 
 
 function LoginPage() {
-
+  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
     //const history = useNavigate();
 
     const[user, setUser] = useState({
@@ -28,7 +28,7 @@ function LoginPage() {
     const loginUser = async(e)=>{
         e.preventDefault();
         const {username, password} =user;
-      const response = await fetch('http://localhost:4000/login',{
+      const response = await fetch(ENDPOINT+'/login',{
         method:'POST',
         headers:{
           "Content-Type":"application/json"

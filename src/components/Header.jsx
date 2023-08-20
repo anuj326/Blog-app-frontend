@@ -2,11 +2,13 @@ import {Link} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {UserContext} from "./UserContext";
 
-export default function Header() {
 
+export default function Header() {
+const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+console.log("Endpoint",ENDPOINT );
   const {setUserInfo,userInfo} = useContext(UserContext);
   useEffect(() => {
-    fetch('http://localhost:4000/profile', {
+    fetch(ENDPOINT+'/profile', {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {

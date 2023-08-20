@@ -3,21 +3,23 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import {UserContext} from '../UserContext'
 
+
 function PostPage() {
+    const ENDPOINT = process.env.REACT_APP_ENDPOINT;
     const [postInfo ,setPostInfo] = useState(null);
     const {userInfo} = useContext(UserContext)
     const params = useParams();
      const id = params.id;
      console.log(id);
     useEffect(()=>{
-        const response = fetch(`http://localhost:4000/getPost/${id}`)
+        const response = fetch(ENDPOINT+`/getPost/${id}`)
         .then(response =>{
             response.json()
         .then(postInfo =>{
                 setPostInfo(postInfo)
             })
         })
-        console.log(`http://localhost:4000/getPost/`+id);
+        console.log(ENDPOINT+`/getPost/`+id);
     },[])
 
     if(!postInfo){
@@ -44,7 +46,7 @@ function PostPage() {
             
         )} 
         <div className='image'>
-            <img src={`http://localhost:4000/${postInfo.cover}`} alt="Post Image" />
+            <img src={ENDPOINT+`/${postInfo.cover}`} alt="Post Image" />
         </div>
        
         <div dangerouslySetInnerHTML={{__html:postInfo.content}} />

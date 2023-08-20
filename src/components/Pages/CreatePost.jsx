@@ -3,6 +3,7 @@ import {Navigate} from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'
 
+
 const modules = {
   toolbar: [
     [{ 'header': [1, 2, false] }],
@@ -20,6 +21,7 @@ const modules = {
   ]; 
 
 function CreatePost() {
+  const ENDPOINT = process.env.REACT_APP_ENDPOINT;
     const [title, setTitle] = useState('');
     const [summary , setSummary] = useState('');
     const [content , setContent] = useState('');
@@ -35,7 +37,7 @@ function CreatePost() {
         data.set('content',content);
         data.set('file',files[0]);
        // console.log(files);
-      const response =  await fetch('http://localhost:4000/post',{
+      const response =  await fetch(ENDPOINT+'/post',{
           method:"POST",
           body: data,
           credentials:'include',
